@@ -7,9 +7,11 @@ GO
 -- Developer:	<Chinedu Ben>
 -- Create date: <Jan 24 2025>
 -- Description:	<Initial process to create stored procedure to pull Allergies Data >
+-- 01/25/2025	<Adding parameter to the stored procedure using CATEGORY COLUMN >
 -- =============================================
-CREATE PROCEDURE spPullAllergiesData
+CREATE OR ALTER PROCEDURE spPullAllergiesData
 	-- Add the parameters for the stored procedure here	
+	@CATEGORY VARCHAR (50)
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -33,6 +35,7 @@ BEGIN
       ,[DESCRIPTION2]
       ,[SEVERITY2]
   FROM [EmadeDev].[dbo].[allergies]
+  WHERE CATEGORY=@CATEGORY
   
   End
   Go
